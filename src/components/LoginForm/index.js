@@ -71,6 +71,12 @@ class LoginForm extends Component {
     }
   }
 
+  skipLogin = async event => {
+    this.setState({username: 'rahul', password: 'rahul@2021'}, () =>
+      this.submitForm(event),
+    )
+  }
+
   renderShowPasswordCheckboxField = () => {
     const {showPassword} = this.state
     return (
@@ -184,6 +190,7 @@ class LoginForm extends Component {
                   {this.renderShowPasswordCheckboxField()}
                 </CheckboxInputContainer>
                 <LoginBtn type="submit">Login</LoginBtn>
+                <LoginBtn type="button" onClick={this.skipLogin}>Skip Login</LoginBtn>
                 {showSubmitError && <Text>*{errorMsg}</Text>}
               </FormContainer>
             </LoginFormContainer>
